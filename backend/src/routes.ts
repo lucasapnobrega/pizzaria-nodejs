@@ -10,6 +10,7 @@ import { isAuthenticated } from './middlewares/isAuthenticated'
 import { CreateCategoryController } from './controllers/category/CreateCategoryController'
 import { ListCategoriesController } from './controllers/category/ListCategoriesController'
 import { CreateProductController } from './controllers/product/CreateProductController'
+import { ListByCategoryController } from './controllers/product/ListByCategoryController'
 
 const router = Router()
 
@@ -26,5 +27,6 @@ router.get("/category", isAuthenticated, new ListCategoriesController().handle)
 
 // product
 router.post("/product", isAuthenticated, upload.single('file'), new CreateProductController().handle)
+router.get("/product/category", isAuthenticated, new ListByCategoryController().handle)
 
 export { router }
