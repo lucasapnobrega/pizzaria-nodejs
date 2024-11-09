@@ -11,6 +11,10 @@ import { CreateCategoryController } from './controllers/category/CreateCategoryC
 import { ListCategoriesController } from './controllers/category/ListCategoriesController'
 import { CreateProductController } from './controllers/product/CreateProductController'
 import { ListByCategoryController } from './controllers/product/ListByCategoryController'
+import { CreateOrderController } from './controllers/order/CreateOrderController'
+import { RemoveOrderController } from './controllers/order/RemoveOrderController'
+import { AddListOrderController } from './controllers/order/AddListOrderController'
+import { RemoveOrderItemController } from './controllers/order/RemoveOrderItemController'
 
 const router = Router()
 
@@ -28,5 +32,11 @@ router.get("/category", isAuthenticated, new ListCategoriesController().handle)
 // product
 router.post("/product", isAuthenticated, upload.single('file'), new CreateProductController().handle)
 router.get("/product/category", isAuthenticated, new ListByCategoryController().handle)
+
+// order
+router.post("/order", isAuthenticated, new CreateOrderController().handle)
+router.delete("/order", isAuthenticated, new RemoveOrderController().handle)
+router.post("/order/addItem", isAuthenticated, new AddListOrderController().handle)
+router.delete("/order/removeItem", isAuthenticated, new RemoveOrderItemController().handle)
 
 export { router }
