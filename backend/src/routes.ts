@@ -15,6 +15,10 @@ import { CreateOrderController } from './controllers/order/CreateOrderController
 import { RemoveOrderController } from './controllers/order/RemoveOrderController'
 import { AddListOrderController } from './controllers/order/AddListOrderController'
 import { RemoveOrderItemController } from './controllers/order/RemoveOrderItemController'
+import { SendOrderController } from './controllers/order/SendOrderController'
+import { ListOrdersController } from './controllers/order/ListOrdersController'
+import { DetailOrderController } from './controllers/order/DetailOrderController'
+import { FinishOrderController } from './controllers/order/FinishOrderController'
 
 const router = Router()
 
@@ -38,5 +42,9 @@ router.post("/order", isAuthenticated, new CreateOrderController().handle)
 router.delete("/order", isAuthenticated, new RemoveOrderController().handle)
 router.post("/order/addItem", isAuthenticated, new AddListOrderController().handle)
 router.delete("/order/removeItem", isAuthenticated, new RemoveOrderItemController().handle)
+router.put("/order/send", isAuthenticated, new SendOrderController().handle)
+router.get("/orders", isAuthenticated, new ListOrdersController().handle)
+router.get("/order/detail", isAuthenticated, new DetailOrderController().handle)
+router.put("/order/finish", isAuthenticated, new FinishOrderController().handle)
 
 export { router }

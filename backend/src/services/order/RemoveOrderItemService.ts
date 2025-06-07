@@ -6,7 +6,7 @@ interface RemoveItemRequest {
 
 class RemoveOrderItemService {
   async execute({ item_id }: RemoveItemRequest) {
-    const orderItem = prismaClient.orderItem.delete({
+    const orderItem = await prismaClient.orderItem.delete({
       where: {
         id: item_id
       }
