@@ -15,13 +15,13 @@ class AuthUserService {
       }
     })
 
-    if(!user)
+    if (!user)
       throw new Error("Usuário não existe")
 
     // verificar se a senha está correta
     const passwordMatch = await compare(password, user.password)
 
-    if(!passwordMatch)
+    if (!passwordMatch)
       throw new Error("Senha incorreta")
 
     // gerar token JWT

@@ -5,12 +5,10 @@ interface Payload {
   sub: string;
 }
 
-// middleware - isAuthenticated
-
 export function isAuthenticated(req: Request, res: Response, next: NextFunction) {
   const authToken = req.headers.authorization
 
-  if(!authToken)
+  if (!authToken)
     return res.status(401).end()
 
   const [_, token] = authToken.split(" ")
