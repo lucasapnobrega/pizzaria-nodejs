@@ -29,13 +29,13 @@ const Input = forwardRef<HTMLInputElement, InputProps>(({
         ref={ref}
         placeholder={placeholder}
         disabled={disabled}
-        className={`border border-lightGray rounded-md p-2 bg-dark1 text-white ${error && "border-red-600"} placeholder:text-sm`}
+        className={`border border-lightGray rounded-md p-2 bg-dark1 text-white text-[0.95rem] ${error && "border-red-600"} placeholder:text-[0.82rem]`}
         {...props}
       />
       
       {error && typeof error.message === "string" && (
-        <span className="text-red-500 font-semibold text-[0.82rem] ml-[0.1rem]">
-          {error.message}
+        <span className="text-red-500 font-semibold text-[0.80rem] ml-[0.1rem]">
+          {(error.message === "Required" || error.message === "Expected number, received nan") ? "Preencha esse campo" : error.message}
         </span>
       )}
     </div>
