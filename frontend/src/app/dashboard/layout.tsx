@@ -1,4 +1,6 @@
+
 import Header from "@/components/Header";
+import { OrderProvider } from "@/contexts/OrderModalContext";
 
 export default function DashboardLayout({
   children,
@@ -7,9 +9,11 @@ export default function DashboardLayout({
 }>) {
   return (
     <>
-      <Header />
+      <OrderProvider>
+        <Header />
 
-      {children}
+        {children}
+      </OrderProvider>
     </>
   );
 }

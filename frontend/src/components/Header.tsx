@@ -19,7 +19,7 @@ export default function Header() {
   }
 
   return (
-    <header className='h-[5rem]'>
+    <header className='h-[5rem] mb-6'>
       <div className='max-w-[1280px] h-[5rem] mx-auto py-4 px-4 xl:px-2 flex justify-between items-center'>
         <Link href={"/dashboard"}>
           <Image 
@@ -29,7 +29,7 @@ export default function Header() {
           />
         </Link>
         
-        <nav className='flex items-center gap-4 text-white'>
+        <nav className='flex items-center gap-4 text-white text-sm lg:text-base'>
           <Link href={"/dashboard/category"} className='transition-all hover:text-red1'>
             Categoria
           </Link>
@@ -43,7 +43,7 @@ export default function Header() {
             className='transition-all xl:ml-6'
             onClick={handleLogout}
           >
-            <LogOutIcon size={24} color='#fff' />
+            <LogOutIcon size={22} color='#fff' />
           </button>
         </nav>
       </div>

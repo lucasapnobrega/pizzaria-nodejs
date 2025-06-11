@@ -1,7 +1,10 @@
-import Orders from "@/components/Orders";
+import { getAllOrders } from "../actions/orders-actions";
+import Orders from "@/components/Orders/Orders";
 
-export default function Dashboard() {
+export default async function Dashboard() {
+  const orders = await getAllOrders()
+
   return (
-    <Orders />
+    <Orders orders={orders} />
   )
 }
